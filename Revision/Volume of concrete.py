@@ -1,4 +1,5 @@
 def volume(l, w):
+
     v = 0
     d = 0
 
@@ -25,9 +26,12 @@ def volume(l, w):
     return l, w, d, v
 
 while True:
+
     types = input('Enter building type (residential / commercial): ')
+
     if types == 'X':
         break
+
     else:
         length, width, depth, vol = volume('Enter the length of the building: ',
                                            'Enter the width of the building: ')

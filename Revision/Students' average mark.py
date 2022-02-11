@@ -1,29 +1,25 @@
 students_list = []
+total_mark = 0
+best_mark = 0
 
-def average(marks):
-    total_mark = 0
-    for mark in marks:
+while True:
+    name = input("Student's name: ").capitalize()
+
+    if name == 'X':
+        break
+
+    else:
+        mark = float(input("Student's mark: "))
         total_mark += mark
 
-    average_mark = total_mark / len(marks)
-    return average_mark
+    students_list.append([name, mark])
 
-def student(name, mark):
+for i in students_list:
+    if i[1] >= best_mark:
+        best_mark = i[1]
 
-    student_list = []
-    student_mark = []
+for student in students_list:
+    if student[1] == best_mark:
+        print(f'The best student is {student[0]} with {student[1]} points')
 
-    while mark != 'X':
-
-        mark = input(mark).lower()
-
-        if mark == 'x':
-            continue
-
-        else:
-            student_mark.append(mark)
-
-    student_average = average(student_mark)
-    student_mark = sorted(student_mark)
-    student_list.append(name, student_mark, student_average)
-
+print(f'Average mark for all students is {total_mark/len(students_list)} points')
