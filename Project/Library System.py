@@ -116,6 +116,11 @@ Books('The Hunger Game', 'Suzanne Collins', 'COL', '9781407132082')
 Books('A Tale Of Two Cities', 'Charles Dickens', 'DIC', '9781853262647')
 Books('Harry Potter', 'J.K.Rowling', 'ROW', '9780439321624')
 
+User('John', '12 Example St')
+User('Susan', '1011 Binary Rd')
+User('Paul', '25 Appletree Dr')
+User('Mary', '8 Moon Cres')
+
 new_action = True
 while new_action:
     print('1. Lend a book')
