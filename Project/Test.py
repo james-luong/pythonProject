@@ -41,8 +41,3 @@ for star in range(len(dist_list)):
 
 print(dist_list)
 
-for cons in range(len(dist_list)):
-    dic[f'constellation {cons + 1}'] =
-
-dic['constellation 1'] =  2,3
-print(dic)
