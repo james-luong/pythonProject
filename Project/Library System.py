@@ -96,7 +96,7 @@ def return_book():
     print()
     if user:
         book = find_book()
-        if not book.available:
+        if book.title in user.borrowed_books:
             confirm = input("Type 'Y' if you want to return this book: ").upper()
             if confirm == 'Y':
                 print(f"Book title '{book.title}' is now returned to the library")
