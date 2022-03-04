@@ -27,12 +27,10 @@ class User:
 def generate_user():
     import csv
     with open ('bankUsers.csv', newline='') as csvfile:
-        filereader = csv.reader(csvfile, delimiter=",", quotechar='"')
+        filereader = csv.reader(csvfile, delimiter=',', quotechar="'")
         for line in filereader:
-            line[8] = line[8].replace('$','') #remove the dollar sign
-            line[8] = line[8].translate({ord(i): None for i in ','}) #remove the comma
             User(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7],
-                 float(line[8]), line[9])
+                 float(line[8][1:]), line[9])
 
 def find_user():
     is_user = False
@@ -111,8 +109,6 @@ def confirmation(account):
 def transfer():
     valid = True
     account_error = 'This account does not exist in the system'
-    main_info = ''
-    sub_info = ''
 
     while valid:
         account = input('Enter your account number: ')
