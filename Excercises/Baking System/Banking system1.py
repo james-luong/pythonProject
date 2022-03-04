@@ -26,9 +26,13 @@ class User:
 
 def generate_user():
     import csv
+
     with open ('bankUsers.csv', newline='') as csvfile:
+
         filereader = csv.reader(csvfile, delimiter=',', quotechar="'")
+
         for line in filereader:
+
             User(line[0], line[1], line[2], line[3], line[4], line[5], line[6], line[7],
                  float(line[8][1:]), line[9])
 
@@ -37,9 +41,11 @@ def find_user():
     user_name = input('Name: ').title()
 
     for user in users_list:
+
         if user_name in user.first_name:
             user.display_info()
             is_user = True
+
         elif user_name in user.last_name:
             user.display_info()
             is_user = True
@@ -51,6 +57,7 @@ def overdrafts():
     total_amount = 0
 
     for user in users_list:
+
         if user.balance < 0:
             user.display_info()
             total_amount -= user.balance
@@ -61,6 +68,7 @@ def missing_email():
     count = 0
 
     for user in users_list:
+
         if not user.email:
             count += 1
             user.display_info()
@@ -76,19 +84,23 @@ def bank_details():
     lowest_balance_user = ''
 
     for user in users_list:
+
         count += 1
         amount += user.balance
 
         if user.balance >= highest_balance:
             highest_balance = user.balance
             highest_balance_user = user
+
         elif user.balance <= lowest_balance:
             lowest_balance = user.balance
             lowest_balance_user = user
 
     print(f'Total users: {count}\n'
           f'Bank total worth: {amount}')
+
     print()
+
     print('Highest balance account:')
     highest_balance_user.display_info()
 
@@ -97,12 +109,15 @@ def bank_details():
 
 def confirmation(account):
     for user in users_list:
+
         if account == user.cc_number:
+            
             user.display_info()
             confirm = input('Confirm account? (Y/N): ').upper()
 
             if confirm == 'Y':
                 return True, user
+
             else:
                 return False
 
@@ -111,6 +126,7 @@ def transfer():
     account_error = 'This account does not exist in the system'
 
     while valid:
+
         account = input('Enter your account number: ')
         main_info = confirmation(account)
 
@@ -151,6 +167,7 @@ userChoice = ""
 print("Welcome")
 
 while userChoice != "Q":
+
     print("What function would you like to run?")
     print("Type 1 to find a user")
     print("Type 2 to print overdraft information")
@@ -163,12 +180,17 @@ while userChoice != "Q":
 
     if userChoice == "1":
         find_user()
+
     elif userChoice == "2":
         overdrafts()
+
     elif userChoice == "3":
         missing_email()
+
     elif userChoice == "4":
         bank_details()
+
     elif userChoice == "5":
         transfer()
+
     print()
