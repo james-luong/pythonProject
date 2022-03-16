@@ -60,9 +60,9 @@ def overdrafts():
 
         if user.balance < 0:
             user.display_info()
-            total_amount -= user.balance
+            total_amount += user.balance
 
-    print('Total overdrafts amount: ${:.2f}'.format(total_amount))
+    print(f'Total overdrafts amount: ${total_amount:.2f}')
 
 def missing_email():
     count = 0
@@ -111,7 +111,7 @@ def confirmation(account):
     for user in users_list:
 
         if account == user.cc_number:
-            
+
             user.display_info()
             confirm = input('Confirm account? (Y/N): ').upper()
 
